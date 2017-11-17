@@ -5,4 +5,7 @@
 
             <p> {{ $post->body }}</p>
 
+            <hr>
+
+            
 </div><!-- /.blog-post -->
