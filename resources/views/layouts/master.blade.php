@@ -10,11 +10,11 @@
       <div class="row">
         <div class="col-sm-8 blog-main">
             @yield('content')
-
-            @include('layouts.aside')
-
-          </div><!-- /.row -->
-        </div><!-- /.blog-main -->
+          </div><!-- /.blog-main -->
+        
+        @include('layouts.aside')
+        
+        </div><!-- /.row -->
       </main><!-- /.container -->
     @include('layouts.footer')
   </body>
