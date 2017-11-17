@@ -23,4 +23,14 @@ class PostController extends Controller
 
         return redirect('welcome');
     }
+
+    public function index(){
+
+        $posts = Post::all();
+        return View('posts.index', compact('posts'));
+    }
+
+    public function show(Post $post){
+        return View('posts.show', compact('post'));
+    }
 }
