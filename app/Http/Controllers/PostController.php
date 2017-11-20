@@ -24,9 +24,11 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
-        Post::create(request(['title', 'body']));
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );        
 
-        return redirect('welcome');
+        return redirect()->home();
     }
 
     public function index(){
