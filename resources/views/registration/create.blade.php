@@ -21,8 +21,15 @@
             <input type="password" class="form-control" id="password" name="password">
         </div>
 
+
+        <div class="form-group">
+            <label for="password" >Password Confirmation:</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+        </div>
+
         <button type="submit" class="btn btn-primary">Register</button>
 
     </form>
-    
+    @include('layouts.errors')
+
 @endsection
