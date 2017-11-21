@@ -52,13 +52,13 @@ class PostController extends Controller
         // $posts = $posts->get();
 
         //TODO : Externalize
-        $archives = Post::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) desc')
-            ->get()
-            ->toArray();
+        // $archives = Post::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
+        //     ->groupBy('year', 'month')
+        //     ->orderByRaw('min(created_at) desc')
+        //     ->get()
+        //     ->toArray();
 
-        return View('posts.index', compact('posts', 'archives'));
+        return View('posts.index', compact('posts'));
     }
 
     public function show(Post $post){
