@@ -10,6 +10,7 @@
         
         @if(Auth::check())
             <a class="nav-link ml-auto" href="#">{{ Auth::user()->name }}</a>
+            <a class="nav-link " href="/logout">Logout</a>
         @endif
 
         </nav>
