@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\User;
+use App\Mail\WelcomeMarkdown;
 
 class RegistrationForm extends FormRequest
 {
@@ -28,5 +30,17 @@ class RegistrationForm extends FormRequest
             'email' => 'required|email',
             'password' => 'required|confirmed'
         ];
+    }
+
+    public function persist(){
+        $user = User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password'))
+        ]);
+        
+        \Mail::to($user)->send( new WelcomeMarkdown($user) );
+
+        return $user;
     }
 }

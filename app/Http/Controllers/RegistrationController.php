@@ -35,7 +35,7 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegistrationForm $request)
+    public function store(RegistrationForm $formRequest)
     {
         // $this->validate(request(), [
             // 'name' => 'required',
@@ -43,21 +43,22 @@ class RegistrationController extends Controller
             // 'password' => 'required|confirmed'
         // ]);
 
-        $user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password'))
-        ]);
+        // $user = User::create([
+        //     'name' => request('name'),
+        //     'email' => request('email'),
+        //     'password' => bcrypt(request('password'))
+        // ]);
         
-        \Mail::to($user)->send( new WelcomeMarkdown($user) );
+        // \Mail::to($user)->send( new WelcomeMarkdown($user) );
         // request(['name', 'email', 'password'])
         //Login user
         // \Auth::login();
         // auth();
+
+        $user = $formRequest->persist();
+
         auth()->login($user);
 
-
-        //Redirect
         return redirect()->home();
     }
 
