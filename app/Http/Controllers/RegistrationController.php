@@ -58,7 +58,8 @@ class RegistrationController extends Controller
         $user = $formRequest->persist();
 
         auth()->login($user);
-
+        
+        event(new \App\Events\RegistrationEvent($user));
         session()->flash('message', 'Thanks to subscribe.');
 
         return redirect()->home();

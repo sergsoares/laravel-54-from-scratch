@@ -39,7 +39,6 @@ class RegistrationForm extends FormRequest
             'password' => bcrypt(request('password'))
         ]);
         
-        \Mail::to($user)->send( new WelcomeMarkdown($user) );
 
         return $user;
     }
