@@ -26,11 +26,11 @@ class Post extends Model
 
     public function scopeFilter($query, $filter){
 
-        if($month = $filter['month']){
+        if($month = isset($filter['month'])){
             $query->whereMonth('created_at', Carbon::parse($month)->month);
         }
         
-        if($year = $filter['year']){
+        if($year = isset($filter['year'])){
             $query->whereYear('created_at', $year);
         }
     }
