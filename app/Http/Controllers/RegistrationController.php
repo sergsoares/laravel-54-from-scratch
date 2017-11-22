@@ -59,6 +59,8 @@ class RegistrationController extends Controller
 
         auth()->login($user);
 
+        session()->flash('message', 'Thanks to subscribe.');
+
         return redirect()->home();
     }
 

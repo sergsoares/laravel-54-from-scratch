@@ -18,13 +18,21 @@
   </head>
   
   <body>
+
+    
     @include('layouts.nav')
+    
+      @if($flash = session('message'))
+        <div id="flash-message" class="alert alert-success">
+          {{ $flash }}
+        </div>
+      @endif  
     @include('layouts.header')
 
 
     <main role="main" class="container">
       <div class="row">
-       
+
          @yield('content')
        
         </div><!-- /.row -->
