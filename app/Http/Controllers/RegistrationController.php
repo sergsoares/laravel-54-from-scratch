@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Mail\WelcomeMarkdown;
+use App\Http\Requests\RegistrationForm;
 
 class RegistrationController extends Controller
 {
@@ -34,13 +35,13 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegistrationForm $request)
     {
-        $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed'
-        ]);
+        // $this->validate(request(), [
+            // 'name' => 'required',
+            // 'email' => 'required|email',
+            // 'password' => 'required|confirmed'
+        // ]);
 
         $user = User::create([
             'name' => request('name'),
